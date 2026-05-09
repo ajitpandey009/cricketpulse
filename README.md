@@ -1,8 +1,12 @@
-# CricketPulse
+# CricketPulse - Live Cricket Scores App
 
-A responsive Cricbuzz-style cricket scores web app built with plain HTML, CSS, and JavaScript.
+CricketPulse is a responsive Cricbuzz-style cricket live score web app built with plain HTML, CSS, and JavaScript. It includes live-score style match cards, cricket scorecards, schedules, rankings, cricket news, fan voting and optional CricketData/CricAPI integration.
 
 ![CricketPulse app preview](assets/cricket-stadium.png)
+
+## Keywords
+
+`cricket live score` `cricket scorecard` `cricket app` `live cricket scores` `cricket schedule` `cricket rankings` `cricket news` `CricketData API` `CricAPI` `HTML CSS JavaScript`
 
 ## Features
 

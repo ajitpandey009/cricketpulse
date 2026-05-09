@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://ajitpandey009.github.io/cricketpulse/sitemap.xml
