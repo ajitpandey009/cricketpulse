@@ -2,6 +2,8 @@
 
 A responsive Cricbuzz-style cricket scores web app built with plain HTML, CSS, and JavaScript.
 
+![CricketPulse app preview](assets/cricket-stadium.png)
+
 ## Features
 
 - Live-score style match cards
