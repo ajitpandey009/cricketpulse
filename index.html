@@ -1,0 +1,176 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CricketPulse - Live Cricket Scores</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <a class="brand" href="#" aria-label="CricketPulse home">
+        <span class="brand-mark">CP</span>
+        <span>CricketPulse</span>
+      </a>
+      <nav class="desktop-nav" aria-label="Primary">
+        <a href="#matches">Live Scores</a>
+        <a href="#schedule">Schedule</a>
+        <a href="#news">News</a>
+        <a href="#rankings">Rankings</a>
+      </nav>
+      <form class="search" role="search">
+        <span aria-hidden="true">⌕</span>
+        <input id="searchInput" type="search" placeholder="Search teams, series, venues" />
+      </form>
+      <button class="menu-button" id="menuButton" type="button" aria-expanded="false" aria-controls="mobileNav">☰</button>
+    </header>
+
+    <nav class="mobile-nav" id="mobileNav" aria-label="Mobile primary">
+      <a href="#matches">Live Scores</a>
+      <a href="#schedule">Schedule</a>
+      <a href="#news">News</a>
+      <a href="#rankings">Rankings</a>
+    </nav>
+
+    <main>
+      <section class="hero" aria-label="Featured live match">
+        <img src="assets/cricket-stadium.png" alt="Cricket stadium during an evening match" />
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+          <div class="status-row">
+            <span class="live-dot"></span>
+            <span>Live now</span>
+            <span>2nd T20I, Ahmedabad</span>
+          </div>
+          <h1>India need 42 from 24 balls</h1>
+          <p>Hardik Pandya is attacking spin while Australia protect a short boundary with two deep fielders.</p>
+          <div class="hero-score">
+            <div>
+              <span>IND</span>
+              <strong>156/4</strong>
+              <small>16.0 ov</small>
+            </div>
+            <div>
+              <span>AUS</span>
+              <strong>197/7</strong>
+              <small>20.0 ov</small>
+            </div>
+            <button type="button" data-match-link="ind-aus">Open scorecard</button>
+          </div>
+        </div>
+      </section>
+
+      <section class="ticker" aria-label="Score ticker">
+        <span>Breaking</span>
+        <p id="tickerText">England announce unchanged XI for the third Test at Leeds.</p>
+      </section>
+
+      <section class="app-grid">
+        <div class="main-column">
+          <section class="panel" id="matches">
+            <div class="section-head">
+              <div>
+                <p class="eyebrow">Scores</p>
+                <h2>Matches</h2>
+              </div>
+              <div class="tabs" role="tablist" aria-label="Match filters">
+                <button class="active" type="button" data-filter="all">All</button>
+                <button type="button" data-filter="live">Live</button>
+                <button type="button" data-filter="upcoming">Upcoming</button>
+                <button type="button" data-filter="result">Results</button>
+              </div>
+            </div>
+            <div class="match-list" id="matchList"></div>
+          </section>
+
+          <section class="panel detail-panel" id="scorecard">
+            <div class="section-head">
+              <div>
+                <p class="eyebrow">Scorecard</p>
+                <h2 id="scorecardTitle">Match Center</h2>
+              </div>
+              <span class="pill" id="scorecardStatus">Live</span>
+            </div>
+            <div id="scorecardBody"></div>
+          </section>
+
+          <section class="panel" id="news">
+            <div class="section-head">
+              <div>
+                <p class="eyebrow">Latest</p>
+                <h2>Top Stories</h2>
+              </div>
+            </div>
+            <div class="news-grid" id="newsGrid"></div>
+          </section>
+        </div>
+
+        <aside class="side-column">
+          <section class="panel" id="schedule">
+            <div class="section-head compact">
+              <div>
+                <p class="eyebrow">Today</p>
+                <h2>Schedule</h2>
+              </div>
+            </div>
+            <div class="schedule-list" id="scheduleList"></div>
+          </section>
+
+          <section class="panel">
+            <div class="section-head compact">
+              <div>
+                <p class="eyebrow">Real Data</p>
+                <h2>Live API</h2>
+              </div>
+            </div>
+            <form class="api-form" id="apiForm">
+              <label for="apiKeyInput">CricketData API key</label>
+              <input id="apiKeyInput" type="password" placeholder="Paste API key" autocomplete="off" />
+              <div class="api-actions">
+                <button type="submit">Load live</button>
+                <button type="button" id="demoDataButton">Demo data</button>
+              </div>
+              <p id="apiStatus">Using built-in demo data.</p>
+            </form>
+          </section>
+
+          <section class="panel" id="rankings">
+            <div class="section-head compact">
+              <div>
+                <p class="eyebrow">ICC</p>
+                <h2>Rankings</h2>
+              </div>
+            </div>
+            <div class="ranking-switch">
+              <button class="active" type="button" data-rank="batting">Batting</button>
+              <button type="button" data-rank="bowling">Bowling</button>
+            </div>
+            <ol class="rank-list" id="rankList"></ol>
+          </section>
+
+          <section class="panel">
+            <div class="section-head compact">
+              <div>
+                <p class="eyebrow">Poll</p>
+                <h2>Fan Vote</h2>
+              </div>
+            </div>
+            <p class="poll-question">Who wins tonight?</p>
+            <div class="poll-options">
+              <button type="button" data-poll="India">India</button>
+              <button type="button" data-poll="Australia">Australia</button>
+            </div>
+            <div class="poll-result" id="pollResult">Vote to see the crowd pulse.</div>
+          </section>
+        </aside>
+      </section>
+    </main>
+
+    <footer>
+      <span>CricketPulse</span>
+      <span>Fast cricket scores, news, schedule and rankings.</span>
+    </footer>
+
+    <script src="app.js"></script>
+  </body>
+</html>
